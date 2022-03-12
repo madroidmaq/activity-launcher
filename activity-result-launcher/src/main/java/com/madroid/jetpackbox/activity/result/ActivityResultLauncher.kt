@@ -1,4 +1,4 @@
-package com.madroid.jetpackbox.activityresult.launcher
+package com.madroid.jetpackbox.activity.result
 
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultRegistry
