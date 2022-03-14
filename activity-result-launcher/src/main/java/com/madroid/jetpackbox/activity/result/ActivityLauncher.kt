@@ -9,7 +9,7 @@ import androidx.lifecycle.coroutineScope
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
-interface ActivityResultLauncher<I, O> {
+interface ActivityLauncher<I, O> {
 
     /**
      * API Wrapper For  [androidx.activity.result.ActivityResultLauncher.launch].
@@ -39,11 +39,11 @@ interface ActivityResultLauncher<I, O> {
     suspend fun launch(input: I, options: ActivityOptionsCompat? = null): O
 }
 
-internal class ActivityResultLauncherImpl<I, O>(
+internal class ActivityLauncherImpl<I, O>(
     private val registry: ActivityResultRegistry,
     private val lifecycleOwner: LifecycleOwner,
     private val contract: ActivityResultContract<I, O>
-) : ActivityResultLauncher<I, O> {
+) : ActivityLauncher<I, O> {
 
     override fun launch(
         input: I,
