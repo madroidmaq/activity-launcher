@@ -4,8 +4,6 @@ import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultRegistry
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.core.app.ActivityOptionsCompat
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.coroutineScope
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
@@ -41,29 +39,32 @@ interface ActivityLauncher<I, O> {
 
 internal class ActivityLauncherImpl<I, O>(
     private val registry: ActivityResultRegistry,
-    private val lifecycleOwner: LifecycleOwner,
     private val contract: ActivityResultContract<I, O>
 ) : ActivityLauncher<I, O> {
 
+    private var launcher: androidx.activity.result.ActivityResultLauncher<I>? = null
     override fun launch(
         input: I,
         options: ActivityOptionsCompat?,
         callback: ActivityResultCallback<O>
     ) {
-        lifecycleOwner.lifecycle.coroutineScope.launchWhenStarted {
-            registry.register(
-                "com.madroid.jetpackbox#activity-result-launcher#${hashCode()}",
-                lifecycleOwner,
-                contract,
-                callback
-            ).launch(input, options)
-        }
+        val key = "com.madroid.jetpackbox#activity-result-launcher#${hashCode()}"
+        registry.register(key, contract) {
+            callback.onActivityResult(it)
+            onResult()
+        }.also {
+            launcher = it
+        }.launch(input, options)
+    }
+
+    private fun onResult() {
+        launcher?.unregister()
     }
 
     override suspend fun launch(input: I, options: ActivityOptionsCompat?): O =
-        suspendCancellableCoroutine { conti ->
+        suspendCancellableCoroutine { continuation ->
             launch(input, options) { result ->
-                conti.resume(result)
+                continuation.resume(result)
             }
         }
 }
