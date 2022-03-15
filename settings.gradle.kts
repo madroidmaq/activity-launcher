@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "JetpackBox"
-include ':app'
-include ':activity-result-launcher'
+include(":app")
+include(":activity-result-launcher")
