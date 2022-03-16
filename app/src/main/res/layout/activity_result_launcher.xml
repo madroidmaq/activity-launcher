@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/create_document"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Create Document"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.607" />
+
+        <Button
+            android:id="@+id/get_contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Contents"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/create_document" />
+
+        <Button
+            android:id="@+id/get_multi_contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Multi Contents"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/get_contents" />
+
+        <Button
+            android:id="@+id/open_document"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="open document"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/get_multi_contents" />
+
+        <Button
+            android:id="@+id/open_document_tree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="open document tree"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/open_document" />
+
+        <Button
+            android:id="@+id/open_multi_document"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="open multi document"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/open_document_tree" />
+
+        <Button
+            android:id="@+id/pick_contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="pick contents"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/open_multi_document" />
+
+
+        <Button
+            android:id="@+id/request_multiple_permissions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="request Multiple Permissions"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pick_contents" />
+
+        <Button
+            android:id="@+id/request_permission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="request Permissions"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/request_multiple_permissions" />
+
+        <Button
+            android:id="@+id/start_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start activity"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/request_permission" />
+
+        <Button
+            android:id="@+id/start_intent_sender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start intent sender"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/start_activity" />
+
+        <Button
+            android:id="@+id/take_picture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="take picture"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/start_intent_sender" />
+
+
+        <Button
+            android:id="@+id/takePicturePreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="take Picture Preview"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/take_picture" />
+
+        <Button
+            android:id="@+id/takeVideo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="take Video"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/takePicturePreview" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
