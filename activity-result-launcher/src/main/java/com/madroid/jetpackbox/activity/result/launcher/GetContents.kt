@@ -39,6 +39,17 @@ fun androidx.activity.ComponentActivity.launchGetContents(
  * @param type MIME data type, see [android.content.Intent.setType]
  */
 @Suppress("unused")
+suspend fun androidx.activity.ComponentActivity.launchGetContents(
+    type: String,
+    options: ActivityOptionsCompat? = null,
+): Uri? = ActivityResultLauncher.getContents(activityResultRegistry).launch(type, options)
+
+/**
+ * extension for launch [ActivityResultContracts.GetContent]
+ *
+ * @param type MIME data type, see [android.content.Intent.setType]
+ */
+@Suppress("unused")
 fun Fragment.launchGetContents(
     type: String,
     options: ActivityOptionsCompat? = null,
@@ -47,3 +58,15 @@ fun Fragment.launchGetContents(
     ActivityResultLauncher.getContents(requireActivity().activityResultRegistry)
         .launch(type, options, result)
 }
+
+/**
+ * extension for launch [ActivityResultContracts.GetContent]
+ *
+ * @param type MIME data type, see [android.content.Intent.setType]
+ */
+@Suppress("unused")
+suspend fun Fragment.launchGetContents(
+    type: String,
+    options: ActivityOptionsCompat? = null,
+): Uri? = ActivityResultLauncher.getContents(requireActivity().activityResultRegistry)
+    .launch(type, options)

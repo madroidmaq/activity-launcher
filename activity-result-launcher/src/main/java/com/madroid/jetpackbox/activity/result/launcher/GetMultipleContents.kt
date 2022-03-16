@@ -39,6 +39,18 @@ fun androidx.activity.ComponentActivity.launchGetMultipleContents(
  * @param type MIME data type, see [android.content.Intent.setType]
  */
 @Suppress("unused")
+suspend fun androidx.activity.ComponentActivity.launchGetMultipleContents(
+    type: String,
+    options: ActivityOptionsCompat? = null,
+): List<Uri> =
+    ActivityResultLauncher.getMultipleContents(activityResultRegistry).launch(type, options)
+
+/**
+ * extension for launch [ActivityResultContracts.GetMultipleContents]
+ *
+ * @param type MIME data type, see [android.content.Intent.setType]
+ */
+@Suppress("unused")
 fun Fragment.launchGetMultipleContents(
     type: String,
     options: ActivityOptionsCompat? = null,
@@ -47,3 +59,16 @@ fun Fragment.launchGetMultipleContents(
     ActivityResultLauncher.getMultipleContents(requireActivity().activityResultRegistry)
         .launch(type, options, result)
 }
+
+/**
+ * extension for launch [ActivityResultContracts.GetMultipleContents]
+ *
+ * @param type MIME data type, see [android.content.Intent.setType]
+ */
+@Suppress("unused")
+suspend fun Fragment.launchGetMultipleContents(
+    type: String,
+    options: ActivityOptionsCompat? = null,
+): List<Uri> =
+    ActivityResultLauncher.getMultipleContents(requireActivity().activityResultRegistry)
+        .launch(type, options)

@@ -39,6 +39,17 @@ fun androidx.activity.ComponentActivity.launchCreateDocument(
  * @param title  [android.content.Intent.EXTRA_TITLE]
  */
 @Suppress("unused")
+suspend fun androidx.activity.ComponentActivity.launchCreateDocument(
+    title: String,
+    options: ActivityOptionsCompat? = null,
+): Uri? = ActivityResultLauncher.createDocument(activityResultRegistry).launch(title, options)
+
+/**
+ * extension for launch [ActivityResultContracts.CreateDocument]
+ *
+ * @param title  [android.content.Intent.EXTRA_TITLE]
+ */
+@Suppress("unused")
 fun Fragment.launchCreateDocument(
     title: String,
     options: ActivityOptionsCompat? = null,
@@ -47,3 +58,15 @@ fun Fragment.launchCreateDocument(
     ActivityResultLauncher.createDocument(requireActivity().activityResultRegistry)
         .launch(title, options, result)
 }
+
+/**
+ * extension for launch [ActivityResultContracts.CreateDocument]
+ *
+ * @param title  [android.content.Intent.EXTRA_TITLE]
+ */
+@Suppress("unused")
+suspend fun Fragment.launchCreateDocument(
+    title: String,
+    options: ActivityOptionsCompat? = null,
+): Uri? = ActivityResultLauncher.createDocument(requireActivity().activityResultRegistry)
+    .launch(title, options)

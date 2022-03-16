@@ -41,6 +41,18 @@ fun androidx.activity.ComponentActivity.launchTakeVideo(
  * @param output see [android.provider.MediaStore.EXTRA_OUTPUT]
  */
 @Suppress("unused")
+suspend fun androidx.activity.ComponentActivity.launchTakeVideo(
+    output: Uri,
+    options: ActivityOptionsCompat? = null,
+): Bitmap? =
+    ActivityResultLauncher.takeVideo(activityResultRegistry).launch(output, options)
+
+/**
+ * extension for launch [ActivityResultContracts.PickContact]
+ *
+ * @param output see [android.provider.MediaStore.EXTRA_OUTPUT]
+ */
+@Suppress("unused")
 fun Fragment.launchTakeVideo(
     output: Uri,
     options: ActivityOptionsCompat? = null,
@@ -49,3 +61,16 @@ fun Fragment.launchTakeVideo(
     ActivityResultLauncher.takeVideo(requireActivity().activityResultRegistry)
         .launch(output, options, result)
 }
+
+/**
+ * extension for launch [ActivityResultContracts.PickContact]
+ *
+ * @param output see [android.provider.MediaStore.EXTRA_OUTPUT]
+ */
+@Suppress("unused")
+suspend fun Fragment.launchTakeVideo(
+    output: Uri,
+    options: ActivityOptionsCompat? = null,
+): Bitmap? =
+    ActivityResultLauncher.takeVideo(requireActivity().activityResultRegistry)
+        .launch(output, options)

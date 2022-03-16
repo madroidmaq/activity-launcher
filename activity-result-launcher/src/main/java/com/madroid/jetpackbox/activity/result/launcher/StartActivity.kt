@@ -34,6 +34,16 @@ fun androidx.activity.ComponentActivity.launchStartActivity(
 }
 
 /**
+ * extension for launch [ActivityResultContracts.StartActivityForResult]
+ */
+@Suppress("unused")
+suspend fun androidx.activity.ComponentActivity.launchStartActivity(
+    intent: Intent,
+    options: ActivityOptionsCompat? = null,
+): ActivityResult =
+    ActivityResultLauncher.startActivity(activityResultRegistry).launch(intent, options)
+
+/**
  * extension for launch [ActivityResultContracts.StartIntentSenderForResult]
  */
 @Suppress("unused")
@@ -45,3 +55,14 @@ fun Fragment.launchTakeVideo(
     ActivityResultLauncher.startActivity(requireActivity().activityResultRegistry)
         .launch(intent, options, result)
 }
+
+/**
+ * extension for launch [ActivityResultContracts.StartActivityForResult]
+ */
+@Suppress("unused")
+suspend fun Fragment.launchStartActivity(
+    intent: Intent,
+    options: ActivityOptionsCompat? = null,
+): ActivityResult =
+    ActivityResultLauncher.startActivity(requireActivity().activityResultRegistry)
+        .launch(intent, options)

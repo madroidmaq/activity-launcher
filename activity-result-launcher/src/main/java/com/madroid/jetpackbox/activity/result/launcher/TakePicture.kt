@@ -40,6 +40,18 @@ fun androidx.activity.ComponentActivity.launchTakePicture(
  * @param output see [android.provider.MediaStore.EXTRA_OUTPUT]
  */
 @Suppress("unused")
+suspend fun androidx.activity.ComponentActivity.launchTakePicture(
+    output: Uri,
+    options: ActivityOptionsCompat? = null,
+): Boolean =
+    ActivityResultLauncher.takePicture(activityResultRegistry).launch(output, options)
+
+/**
+ * extension for launch [ActivityResultContracts.TakePicture]
+ *
+ * @param output see [android.provider.MediaStore.EXTRA_OUTPUT]
+ */
+@Suppress("unused")
 fun Fragment.launchTakePicture(
     output: Uri,
     options: ActivityOptionsCompat? = null,
@@ -48,3 +60,16 @@ fun Fragment.launchTakePicture(
     ActivityResultLauncher.takePicture(requireActivity().activityResultRegistry)
         .launch(output, options, result)
 }
+
+/**
+ * extension for launch [ActivityResultContracts.TakePicture]
+ *
+ * @param output see [android.provider.MediaStore.EXTRA_OUTPUT]
+ */
+@Suppress("unused")
+suspend fun Fragment.launchTakePicture(
+    output: Uri,
+    options: ActivityOptionsCompat? = null,
+): Boolean =
+    ActivityResultLauncher.takePicture(requireActivity().activityResultRegistry)
+        .launch(output, options)
