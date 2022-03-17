@@ -3,16 +3,15 @@ package com.madroid.jetpackbox.app.launcher
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.madroid.jetpackbox.activity.result.launcher.ActivityResultLauncher
 import com.madroid.jetpackbox.activity.result.launcher.createDocument
-import com.madroid.jetpackbox.activity.result.launcher.getContents
-import com.madroid.jetpackbox.activity.result.launcher.getMultipleContents
-import com.madroid.jetpackbox.activity.result.launcher.launchCreateDocument
 import com.madroid.jetpackbox.activity.result.launcher.launchGetContents
 import com.madroid.jetpackbox.activity.result.launcher.launchGetMultipleContents
 import com.madroid.jetpackbox.activity.result.launcher.launchOpenDocument
 import com.madroid.jetpackbox.activity.result.launcher.openDocument
 import com.madroid.jetpackbox.app.databinding.ActivityResultLauncherBinding
+import kotlinx.coroutines.launch
 
 class ActivityResultLauncherActivity : AppCompatActivity() {
 
@@ -79,18 +78,10 @@ class ActivityResultLauncherActivity : AppCompatActivity() {
         ActivityResultLauncher.createDocument(activityResultRegistry).launch(title) {
             Log.i(TAG, "createDocument result: $it")
         }
-        // create Document with extension
-        launchCreateDocument(title) {
-            Log.i(TAG, "createDocument result: $it")
-        }
     }
 
     private fun getContents() {
         val type = "text/plain"
-        // getContents normal
-        ActivityResultLauncher.getContents(activityResultRegistry).launch(type) {
-            Log.i(TAG, "getContents result: $it")
-        }
         // getContents with extension
         launchGetContents(type) {
             Log.i(TAG, "getContents result: $it")
@@ -98,14 +89,10 @@ class ActivityResultLauncherActivity : AppCompatActivity() {
     }
 
     private fun getMultiContents() {
-        val type = "text/plain"
-        // getContents normal
-        ActivityResultLauncher.getMultipleContents(activityResultRegistry).launch(type) {
-            Log.i(TAG, "getMultipleContents result: $it")
-        }
-        // getContents with extension
-        launchGetMultipleContents(type) {
-            Log.i(TAG, "getMultipleContents result: $it")
+        lifecycleScope.launch {
+            val type = "text/plain"
+            val result = launchGetMultipleContents(type)
+            Log.i(TAG, "getMultiContents result: $result")
         }
     }
 
