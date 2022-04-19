@@ -1,23 +1,12 @@
-package com.madroid.activity.result.launcher
+package com.madroid.activity.launcher.ext
 
 import android.net.Uri
 import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.ActivityResultRegistry
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
-import com.madroid.activity.result.Launcher
-import com.madroid.activity.result.LauncherImpl
-
-/**
- * Wrapper for [ActivityResultContracts.GetContent]
- */
-@Suppress("unused")
-fun ActivityLauncher.getContents(registry: ActivityResultRegistry): Launcher<String, Uri?> =
-    LauncherImpl(
-        registry,
-        ActivityResultContracts.GetContent()
-    )
+import com.madroid.activity.launcher.ActivityLauncher
+import com.madroid.activity.launcher.actions.getContents
 
 /**
  * extension for launch [ActivityResultContracts.GetContent]

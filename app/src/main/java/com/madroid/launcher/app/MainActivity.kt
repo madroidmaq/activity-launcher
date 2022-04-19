@@ -3,7 +3,6 @@ package com.madroid.launcher.app
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.madroid.launcher.app.launcher.ActivityResultLauncherActivity
 import com.madroid.launcher.app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

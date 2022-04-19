@@ -1,4 +1,4 @@
-package com.madroid.activity.result
+package com.madroid.activity.launcher.api
 
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultRegistry

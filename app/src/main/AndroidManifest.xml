@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".launcher.ActivityResultLauncherActivity">
+            android:name=".ActivityResultLauncherActivity">
         </activity>
     </application>
 

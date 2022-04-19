@@ -1,9 +1,9 @@
-package com.madroid.activity.result.launcher
+package com.madroid.activity.launcher
 
 import androidx.activity.result.ActivityResultRegistry
 import androidx.activity.result.contract.ActivityResultContract
-import com.madroid.activity.result.Launcher
-import com.madroid.activity.result.LauncherImpl
+import com.madroid.activity.launcher.api.Launcher
+import com.madroid.activity.launcher.api.LauncherImpl
 
 object ActivityLauncher {
 
