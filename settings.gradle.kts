@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "jetpack-box"
+rootProject.name = "activity-launcher"
 include(":app")
-include(":activity-result-launcher")
+include(":launcher")
