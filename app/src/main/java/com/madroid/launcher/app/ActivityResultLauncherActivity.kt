@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.madroid.activity.launcher.ActivityLauncher
 import com.madroid.activity.launcher.actions.createDocument
-import com.madroid.activity.launcher.actions.launchGetContents
-import com.madroid.activity.launcher.actions.launchGetMultipleContents
+import com.madroid.activity.launcher.ext.launchGetContents
+import com.madroid.activity.launcher.ext.launchGetMultipleContents
 import com.madroid.activity.launcher.ext.launchOpenDocument
 import com.madroid.launcher.app.databinding.ActivityResultLauncherBinding
 import kotlinx.coroutines.launch
@@ -98,7 +98,7 @@ class ActivityResultLauncherActivity : AppCompatActivity() {
     private fun openDocument() {
         val mimeTypes = arrayOf("image/png", "audio/*")
         // getContents normal
-        com.madroid.activity.launcher.ext.openDocument(activityResultRegistry).launch(mimeTypes) {
+        launchOpenDocument(mimeTypes) {
             Log.i(TAG, "OpenDocument result: $it")
         }
         // getContents with extension

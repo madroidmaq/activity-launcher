@@ -32,19 +32,6 @@ suspend fun androidx.activity.ComponentActivity.launchStartActivity(
     ActivityLauncher.startActivity(activityResultRegistry).launch(intent, options)
 
 /**
- * extension for launch [ActivityResultContracts.StartIntentSenderForResult]
- */
-@Suppress("unused")
-fun Fragment.launchTakeVideo(
-    intent: Intent,
-    options: ActivityOptionsCompat? = null,
-    result: ActivityResultCallback<ActivityResult>
-) {
-    ActivityLauncher.startActivity(requireActivity().activityResultRegistry)
-        .launch(intent, options, result)
-}
-
-/**
  * extension for launch [ActivityResultContracts.StartActivityForResult]
  */
 @Suppress("unused")
