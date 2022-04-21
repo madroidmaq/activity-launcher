@@ -11,6 +11,7 @@ object ActivityLauncher {
      * base activity result launcher with custom [ActivityResultContract]
      */
     @Suppress("unused")
+    @JvmStatic
     fun <I, O> startWithContract(
         registry: ActivityResultRegistry,
         contract: ActivityResultContract<I, O>
