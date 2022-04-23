@@ -98,8 +98,20 @@ dependencies {
 
 ```kotlin
 private fun getContents() {
-	  ActivityLauncher.getContents(activityResultRegistry).launch("") { uri: Uri? ->
+    ActivityLauncher.getContents(activityResultRegistry).launch("") { uri: Uri? ->
         // Handle the returned Uri
     }
 }
 ```
+
+也对 Activity、Fragment 中添加了一些扩展函数，以简化上面的写法，如下：
+
+```kotlin
+private fun getContents() {
+    launchGetContents(type, null) {
+        // Handle the returned Uri
+    }
+}
+```
+
+### 自定义 ActivityResultContract
