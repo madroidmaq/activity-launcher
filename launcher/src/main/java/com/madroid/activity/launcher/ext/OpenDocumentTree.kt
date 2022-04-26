@@ -29,11 +29,11 @@ fun androidx.activity.ComponentActivity.launchOpenDocumentTree(
  * @param initialUri see [android.provider.DocumentsContract.EXTRA_INITIAL_URI]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchOpenDocumentTree(
+suspend fun androidx.activity.ComponentActivity.awaitOpenDocumentTree(
     initialUri: Uri?,
     options: ActivityOptionsCompat? = null,
 ): Uri? =
-    ActivityLauncher.openDocumentTree(activityResultRegistry).launch(initialUri, options)
+    ActivityLauncher.openDocumentTree(activityResultRegistry).awaitLaunch(initialUri, options)
 
 /**
  * extension for [ActivityResultContracts.OpenDocumentTree]
@@ -56,9 +56,9 @@ fun Fragment.launchOpenDocumentTree(
  * @param initialUri see [android.provider.DocumentsContract.EXTRA_INITIAL_URI]
  */
 @Suppress("unused")
-suspend fun Fragment.launchOpenDocumentTree(
+suspend fun Fragment.awaitOpenDocumentTree(
     initialUri: Uri?,
     options: ActivityOptionsCompat? = null,
 ): Uri? =
     ActivityLauncher.openDocumentTree(requireActivity().activityResultRegistry)
-        .launch(initialUri, options)
+        .awaitLaunch(initialUri, options)

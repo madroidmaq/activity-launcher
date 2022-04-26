@@ -29,11 +29,11 @@ fun androidx.activity.ComponentActivity.launchOpenDocument(
  * @param mimeTypes see [android.content.Intent.EXTRA_MIME_TYPES]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchOpenDocument(
+suspend fun androidx.activity.ComponentActivity.awaitOpenDocument(
     mimeTypes: Array<String>,
     options: ActivityOptionsCompat? = null,
 ): Uri? =
-    ActivityLauncher.openDocument(activityResultRegistry).launch(mimeTypes, options)
+    ActivityLauncher.openDocument(activityResultRegistry).awaitLaunch(mimeTypes, options)
 
 /**
  * extension for [ActivityResultContracts.OpenDocument]
@@ -56,9 +56,9 @@ fun Fragment.launchOpenDocument(
  * @param mimeTypes see [android.content.Intent.EXTRA_MIME_TYPES]
  */
 @Suppress("unused")
-suspend fun Fragment.launchOpenDocument(
+suspend fun Fragment.awaitOpenDocument(
     mimeTypes: Array<String>,
     options: ActivityOptionsCompat? = null,
 ): Uri? =
     ActivityLauncher.openDocument(requireActivity().activityResultRegistry)
-        .launch(mimeTypes, options)
+        .awaitLaunch(mimeTypes, options)

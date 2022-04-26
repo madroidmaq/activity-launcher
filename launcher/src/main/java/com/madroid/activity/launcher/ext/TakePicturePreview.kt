@@ -23,10 +23,10 @@ fun androidx.activity.ComponentActivity.launchTakePicturePreview(
  * extension for launch [ActivityResultContracts.TakePicturePreview]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchTakePicturePreview(
+suspend fun androidx.activity.ComponentActivity.awaitTakePicturePreview(
     options: ActivityOptionsCompat? = null,
 ): Bitmap? =
-    ActivityLauncher.takePicturePreview(activityResultRegistry).launch(null, options)
+    ActivityLauncher.takePicturePreview(activityResultRegistry).awaitLaunch(null, options)
 
 /**
  * extension for launch [ActivityResultContracts.TakePicturePreview]
@@ -44,8 +44,8 @@ fun Fragment.launchTakePicturePreview(
  * extension for launch [ActivityResultContracts.TakePicturePreview]
  */
 @Suppress("unused")
-suspend fun Fragment.launchTakePicturePreview(
+suspend fun Fragment.awaitTakePicturePreview(
     options: ActivityOptionsCompat? = null,
 ): Bitmap? =
     ActivityLauncher.takePicturePreview(requireActivity().activityResultRegistry)
-        .launch(null, options)
+        .awaitLaunch(null, options)

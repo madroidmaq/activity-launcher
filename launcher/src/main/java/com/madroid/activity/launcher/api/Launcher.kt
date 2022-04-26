@@ -31,5 +31,5 @@ interface Launcher<I, O> {
      *
      * @throws android.content.ActivityNotFoundException
      */
-    suspend fun launch(input: I, options: ActivityOptionsCompat? = null): O
+    suspend fun awaitLaunch(input: I, options: ActivityOptionsCompat? = null): O
 }

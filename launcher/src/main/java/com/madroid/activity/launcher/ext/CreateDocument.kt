@@ -14,10 +14,10 @@ import com.madroid.activity.launcher.actions.createDocument
  * @param title  [android.content.Intent.EXTRA_TITLE]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchCreateDocument(
+suspend fun androidx.activity.ComponentActivity.awaitCreateDocument(
     title: String,
     options: ActivityOptionsCompat? = null,
-): Uri? = ActivityLauncher.createDocument(activityResultRegistry).launch(title, options)
+): Uri? = ActivityLauncher.createDocument(activityResultRegistry).awaitLaunch(title, options)
 
 /**
  * extension for launch [ActivityResultContracts.CreateDocument]
@@ -40,8 +40,8 @@ fun Fragment.launchCreateDocument(
  * @param title  [android.content.Intent.EXTRA_TITLE]
  */
 @Suppress("unused")
-suspend fun Fragment.launchCreateDocument(
+suspend fun Fragment.awaitCreateDocument(
     title: String,
     options: ActivityOptionsCompat? = null,
 ): Uri? = ActivityLauncher.createDocument(requireActivity().activityResultRegistry)
-    .launch(title, options)
+    .awaitLaunch(title, options)

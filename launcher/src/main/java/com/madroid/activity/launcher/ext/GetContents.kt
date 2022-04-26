@@ -28,10 +28,12 @@ fun androidx.activity.ComponentActivity.launchGetContents(
  * @param type MIME data type, see [android.content.Intent.setType]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchGetContents(
+suspend fun androidx.activity.ComponentActivity.awaitGetContents(
     type: String,
     options: ActivityOptionsCompat? = null,
-): Uri? = ActivityLauncher.getContents(activityResultRegistry).launch(type, options)
+): Uri? = ActivityLauncher.getContents(activityResultRegistry).awaitLaunch(type, options)
+
+// TODO add callback
 
 /**
  * extension for launch [ActivityResultContracts.GetContent]
@@ -54,8 +56,8 @@ fun Fragment.launchGetContents(
  * @param type MIME data type, see [android.content.Intent.setType]
  */
 @Suppress("unused")
-suspend fun Fragment.launchGetContents(
+suspend fun Fragment.awaitGetContents(
     type: String,
     options: ActivityOptionsCompat? = null,
 ): Uri? = ActivityLauncher.getContents(requireActivity().activityResultRegistry)
-    .launch(type, options)
+    .awaitLaunch(type, options)

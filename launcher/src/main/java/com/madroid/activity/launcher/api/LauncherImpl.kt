@@ -30,7 +30,7 @@ internal class LauncherImpl<I, O>(
         launcher?.unregister()
     }
 
-    override suspend fun launch(input: I, options: ActivityOptionsCompat?): O =
+    override suspend fun awaitLaunch(input: I, options: ActivityOptionsCompat?): O =
         suspendCancellableCoroutine { continuation ->
             launch(input, options) { result ->
                 continuation.resume(result)

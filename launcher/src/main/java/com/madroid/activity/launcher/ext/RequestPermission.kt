@@ -28,12 +28,12 @@ fun androidx.activity.ComponentActivity.launchRequestPermission(
  * @param permission see [androidx.activity.result.contract.ActivityResultContracts.RequestMultiplePermissions.EXTRA_PERMISSIONS]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchRequestPermission(
+suspend fun androidx.activity.ComponentActivity.awaitRequestPermission(
     permission: String,
     options: ActivityOptionsCompat? = null,
 ): Boolean =
     ActivityLauncher.requestPermission(activityResultRegistry)
-        .launch(permission, options)
+        .awaitLaunch(permission, options)
 
 /**
  * extension for launch [ActivityResultContracts.RequestPermission]
@@ -56,9 +56,9 @@ fun Fragment.launchRequestPermission(
  * @param permission see [androidx.activity.result.contract.ActivityResultContracts.RequestMultiplePermissions.EXTRA_PERMISSIONS]
  */
 @Suppress("unused")
-suspend fun Fragment.launchRequestPermission(
+suspend fun Fragment.awaitRequestPermission(
     permission: String,
     options: ActivityOptionsCompat? = null,
 ): Boolean =
     ActivityLauncher.requestPermission(requireActivity().activityResultRegistry)
-        .launch(permission, options)
+        .awaitLaunch(permission, options)

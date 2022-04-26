@@ -23,10 +23,10 @@ fun androidx.activity.ComponentActivity.launchPickContact(
  * extension for launch [ActivityResultContracts.PickContact]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchPickContact(
+suspend fun androidx.activity.ComponentActivity.awaitPickContact(
     options: ActivityOptionsCompat? = null,
 ): Uri? =
-    ActivityLauncher.pickContact(activityResultRegistry).launch(null, options)
+    ActivityLauncher.pickContact(activityResultRegistry).awaitLaunch(null, options)
 
 /**
  * extension for launch [ActivityResultContracts.PickContact]
@@ -44,8 +44,8 @@ fun Fragment.launchPickContact(
  * extension for launch [ActivityResultContracts.PickContact]
  */
 @Suppress("unused")
-suspend fun Fragment.launchPickContact(
+suspend fun Fragment.awaitPickContact(
     options: ActivityOptionsCompat? = null,
 ): Uri? =
     ActivityLauncher.pickContact(requireActivity().activityResultRegistry)
-        .launch(null, options)
+        .awaitLaunch(null, options)

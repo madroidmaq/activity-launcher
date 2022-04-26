@@ -7,7 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import com.madroid.activity.launcher.ActivityLauncher
 import com.madroid.activity.launcher.actions.createDocument
 import com.madroid.activity.launcher.ext.launchGetContents
-import com.madroid.activity.launcher.ext.launchGetMultipleContents
+import com.madroid.activity.launcher.ext.awaitGetMultipleContents
 import com.madroid.activity.launcher.ext.launchOpenDocument
 import com.madroid.launcher.app.databinding.ActivityResultLauncherBinding
 import kotlinx.coroutines.launch
@@ -90,7 +90,7 @@ class ActivityResultLauncherActivity : AppCompatActivity() {
     private fun getMultiContents() {
         lifecycleScope.launch {
             val type = "text/plain"
-            val result = launchGetMultipleContents(type)
+            val result = awaitGetMultipleContents(type)
             Log.i(TAG, "getMultiContents result: $result")
         }
     }

@@ -25,19 +25,19 @@ fun androidx.activity.ComponentActivity.launchStartActivity(
  * extension for launch [ActivityResultContracts.StartActivityForResult]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchStartActivity(
+suspend fun androidx.activity.ComponentActivity.awaitStartActivity(
     intent: Intent,
     options: ActivityOptionsCompat? = null,
 ): ActivityResult =
-    ActivityLauncher.startActivity(activityResultRegistry).launch(intent, options)
+    ActivityLauncher.startActivity(activityResultRegistry).awaitLaunch(intent, options)
 
 /**
  * extension for launch [ActivityResultContracts.StartActivityForResult]
  */
 @Suppress("unused")
-suspend fun Fragment.launchStartActivity(
+suspend fun Fragment.awaitStartActivity(
     intent: Intent,
     options: ActivityOptionsCompat? = null,
 ): ActivityResult =
     ActivityLauncher.startActivity(requireActivity().activityResultRegistry)
-        .launch(intent, options)
+        .awaitLaunch(intent, options)

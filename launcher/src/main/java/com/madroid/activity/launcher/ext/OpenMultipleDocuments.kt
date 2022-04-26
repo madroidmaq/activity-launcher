@@ -25,11 +25,11 @@ fun androidx.activity.ComponentActivity.launchOpenDocumentTree(
  * extension for [ActivityResultContracts.OpenMultipleDocuments]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchOpenDocumentTree(
+suspend fun androidx.activity.ComponentActivity.awaitOpenDocumentTree(
     input: Array<String>,
     options: ActivityOptionsCompat? = null,
 ): List<Uri> =
-    ActivityLauncher.openMultipleDocuments(activityResultRegistry).launch(input, options)
+    ActivityLauncher.openMultipleDocuments(activityResultRegistry).awaitLaunch(input, options)
 
 /**
  * extension for [ActivityResultContracts.OpenMultipleDocuments]
@@ -48,9 +48,9 @@ fun Fragment.launchOpenDocumentTree(
  * extension for [ActivityResultContracts.OpenMultipleDocuments]
  */
 @Suppress("unused")
-suspend fun Fragment.launchOpenDocumentTree(
+suspend fun Fragment.awaitOpenDocumentTree(
     input: Array<String>,
     options: ActivityOptionsCompat? = null,
 ): List<Uri> =
     ActivityLauncher.openMultipleDocuments(requireActivity().activityResultRegistry)
-        .launch(input, options)
+        .awaitLaunch(input, options)

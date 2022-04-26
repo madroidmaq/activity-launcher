@@ -28,11 +28,11 @@ fun androidx.activity.ComponentActivity.launchTakePicture(
  * @param output see [android.provider.MediaStore.EXTRA_OUTPUT]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchTakePicture(
+suspend fun androidx.activity.ComponentActivity.awaitTakePicture(
     output: Uri,
     options: ActivityOptionsCompat? = null,
 ): Boolean =
-    ActivityLauncher.takePicture(activityResultRegistry).launch(output, options)
+    ActivityLauncher.takePicture(activityResultRegistry).awaitLaunch(output, options)
 
 /**
  * extension for launch [ActivityResultContracts.TakePicture]
@@ -55,9 +55,9 @@ fun Fragment.launchTakePicture(
  * @param output see [android.provider.MediaStore.EXTRA_OUTPUT]
  */
 @Suppress("unused")
-suspend fun Fragment.launchTakePicture(
+suspend fun Fragment.awaitTakePicture(
     output: Uri,
     options: ActivityOptionsCompat? = null,
 ): Boolean =
     ActivityLauncher.takePicture(requireActivity().activityResultRegistry)
-        .launch(output, options)
+        .awaitLaunch(output, options)

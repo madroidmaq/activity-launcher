@@ -29,11 +29,11 @@ fun androidx.activity.ComponentActivity.launchStartIntentSender(
  * @param output see [androidx.activity.result.contract.ActivityResultContracts.StartIntentSenderForResult.EXTRA_INTENT_SENDER_REQUEST]
  */
 @Suppress("unused")
-suspend fun androidx.activity.ComponentActivity.launchStartIntentSender(
+suspend fun androidx.activity.ComponentActivity.awaitStartIntentSender(
     output: IntentSenderRequest,
     options: ActivityOptionsCompat? = null,
 ): ActivityResult =
-    ActivityLauncher.startIntentSender(activityResultRegistry).launch(output, options)
+    ActivityLauncher.startIntentSender(activityResultRegistry).awaitLaunch(output, options)
 
 /**
  * extension for launch [ActivityResultContracts.StartIntentSenderForResult]
@@ -56,9 +56,9 @@ fun Fragment.launchStartIntentSender(
  * @param output see [androidx.activity.result.contract.ActivityResultContracts.StartIntentSenderForResult.EXTRA_INTENT_SENDER_REQUEST]
  */
 @Suppress("unused")
-suspend fun Fragment.launchStartIntentSender(
+suspend fun Fragment.awaitStartIntentSender(
     output: IntentSenderRequest,
     options: ActivityOptionsCompat? = null,
 ): ActivityResult =
     ActivityLauncher.startIntentSender(requireActivity().activityResultRegistry)
-        .launch(output, options)
+        .awaitLaunch(output, options)
