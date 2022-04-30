@@ -3,6 +3,7 @@ package com.madroid.launcher.app
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.madroid.activity.launcher.ktx.actions.launchGetContents
 import com.madroid.launcher.app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,12 @@ class MainActivity : AppCompatActivity() {
             launcher.setOnClickListener {
                 startActivity(Intent(this@MainActivity, ActivityResultLauncherActivity::class.java))
             }
+        }
+    }
+
+    private fun getContents() {
+        launchGetContents("type", null) {
+            // Handle the returned Uri
         }
     }
 }

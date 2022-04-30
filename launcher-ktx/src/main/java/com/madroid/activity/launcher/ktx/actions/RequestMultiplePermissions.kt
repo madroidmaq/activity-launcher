@@ -1,4 +1,4 @@
-package com.madroid.activity.launcher.ext
+package com.madroid.activity.launcher.ktx.actions
 
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts

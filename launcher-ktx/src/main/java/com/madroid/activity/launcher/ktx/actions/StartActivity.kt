@@ -1,4 +1,4 @@
-package com.madroid.activity.launcher.ext
+package com.madroid.activity.launcher.ktx.actions
 
 import android.content.Intent
 import androidx.activity.result.ActivityResult

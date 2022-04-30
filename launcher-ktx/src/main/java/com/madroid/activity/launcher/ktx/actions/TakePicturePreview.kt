@@ -1,4 +1,4 @@
-package com.madroid.activity.launcher.ext
+package com.madroid.activity.launcher.ktx.actions
 
 import android.graphics.Bitmap
 import androidx.activity.result.ActivityResultCallback
