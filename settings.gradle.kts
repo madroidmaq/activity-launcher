@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "activity-launcher"
 include(":app")
 include(":launcher")
+include(":launcher-ktx")
