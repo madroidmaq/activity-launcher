@@ -20,16 +20,4 @@ interface Launcher<I, O> {
         options: ActivityOptionsCompat? = null,
         callback: ActivityResultCallback<O>
     )
-
-    /**
-     * API Wrapper For  [androidx.activity.result.ActivityResultLauncher.launch] use suspend fun.
-     *
-     * @param input the input required to execute an [ActivityResultContract].
-     * @param options Additional options for how the Activity should be started, default value is null.
-     *
-     * @return the activity result value.
-     *
-     * @throws android.content.ActivityNotFoundException
-     */
-    suspend fun awaitLaunch(input: I, options: ActivityOptionsCompat? = null): O
 }

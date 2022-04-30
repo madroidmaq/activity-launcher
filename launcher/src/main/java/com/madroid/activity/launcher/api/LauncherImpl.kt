@@ -4,8 +4,6 @@ import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultRegistry
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.core.app.ActivityOptionsCompat
-import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlin.coroutines.resume
 
 internal class LauncherImpl<I, O>(
     private val registry: ActivityResultRegistry,
@@ -29,11 +27,4 @@ internal class LauncherImpl<I, O>(
     private fun onResult() {
         launcher?.unregister()
     }
-
-    override suspend fun awaitLaunch(input: I, options: ActivityOptionsCompat?): O =
-        suspendCancellableCoroutine { continuation ->
-            launch(input, options) { result ->
-                continuation.resume(result)
-            }
-        }
 }
