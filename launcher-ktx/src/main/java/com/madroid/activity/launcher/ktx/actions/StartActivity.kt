@@ -7,7 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import com.madroid.activity.launcher.ActivityLauncher
-import com.madroid.activity.launcher.actions.startActivity
+import com.madroid.activity.launcher.ktx.awaitLaunch
 
 /**
  * extension for launch [ActivityResultContracts.StartActivityForResult]
@@ -30,6 +30,20 @@ suspend fun androidx.activity.ComponentActivity.awaitStartActivity(
     options: ActivityOptionsCompat? = null,
 ): ActivityResult =
     ActivityLauncher.startActivity(activityResultRegistry).awaitLaunch(intent, options)
+
+
+/**
+ * extension for launch [ActivityResultContracts.StartActivityForResult]
+ */
+@Suppress("unused")
+fun Fragment.launchStartActivity(
+    intent: Intent,
+    options: ActivityOptionsCompat? = null,
+    result: ActivityResultCallback<ActivityResult>
+) {
+    ActivityLauncher.startActivity(requireActivity().activityResultRegistry)
+        .launch(intent, options, result)
+}
 
 /**
  * extension for launch [ActivityResultContracts.StartActivityForResult]

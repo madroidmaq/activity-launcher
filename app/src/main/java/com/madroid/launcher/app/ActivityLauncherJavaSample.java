@@ -16,5 +16,9 @@ public class ActivityLauncherJavaSample {
         ActivityLauncher.startWithContract(registry, new ActivityResultContracts.CreateDocument()).launch(title, null, result -> {
             // handle result
         });
+
+        ActivityLauncher.createDocument(registry).launch(title, result -> {
+            // handle result
+        });
     }
 }

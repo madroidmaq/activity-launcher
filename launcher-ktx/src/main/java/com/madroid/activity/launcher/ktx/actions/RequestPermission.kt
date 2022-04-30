@@ -5,7 +5,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import com.madroid.activity.launcher.ActivityLauncher
-import com.madroid.activity.launcher.actions.requestPermission
+import com.madroid.activity.launcher.ktx.awaitLaunch
 
 /**
  * extension for launch [ActivityResultContracts.RequestPermission]
@@ -18,8 +18,7 @@ fun androidx.activity.ComponentActivity.launchRequestPermission(
     options: ActivityOptionsCompat? = null,
     result: ActivityResultCallback<Boolean>
 ) {
-    ActivityLauncher.requestPermission(activityResultRegistry)
-        .launch(permission, options, result)
+    ActivityLauncher.requestPermission(activityResultRegistry).launch(permission, options, result)
 }
 
 /**
@@ -32,8 +31,7 @@ suspend fun androidx.activity.ComponentActivity.awaitRequestPermission(
     permission: String,
     options: ActivityOptionsCompat? = null,
 ): Boolean =
-    ActivityLauncher.requestPermission(activityResultRegistry)
-        .awaitLaunch(permission, options)
+    ActivityLauncher.requestPermission(activityResultRegistry).awaitLaunch(permission, options)
 
 /**
  * extension for launch [ActivityResultContracts.RequestPermission]

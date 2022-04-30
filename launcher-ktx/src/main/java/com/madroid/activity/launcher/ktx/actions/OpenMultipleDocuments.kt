@@ -6,7 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import com.madroid.activity.launcher.ActivityLauncher
-import com.madroid.activity.launcher.actions.openMultipleDocuments
+import com.madroid.activity.launcher.ktx.awaitLaunch
 
 /**
  * extension for [ActivityResultContracts.OpenMultipleDocuments]
@@ -17,8 +17,7 @@ fun androidx.activity.ComponentActivity.launchOpenDocumentTree(
     options: ActivityOptionsCompat? = null,
     result: ActivityResultCallback<List<Uri>>
 ) {
-    ActivityLauncher.openMultipleDocuments(activityResultRegistry)
-        .launch(input, options, result)
+    ActivityLauncher.openMultipleDocuments(activityResultRegistry).launch(input, options, result)
 }
 
 /**

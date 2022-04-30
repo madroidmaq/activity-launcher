@@ -6,7 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import com.madroid.activity.launcher.ActivityLauncher
-import com.madroid.activity.launcher.actions.getContents
+import com.madroid.activity.launcher.ktx.awaitLaunch
 
 /**
  * extension for launch [ActivityResultContracts.GetContent]
@@ -32,8 +32,6 @@ suspend fun androidx.activity.ComponentActivity.awaitGetContents(
     type: String,
     options: ActivityOptionsCompat? = null,
 ): Uri? = ActivityLauncher.getContents(activityResultRegistry).awaitLaunch(type, options)
-
-// TODO add callback
 
 /**
  * extension for launch [ActivityResultContracts.GetContent]

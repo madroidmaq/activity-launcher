@@ -7,7 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import com.madroid.activity.launcher.ActivityLauncher
-import com.madroid.activity.launcher.actions.startIntentSender
+import com.madroid.activity.launcher.ktx.awaitLaunch
 
 /**
  * extension for launch [ActivityResultContracts.StartIntentSenderForResult]

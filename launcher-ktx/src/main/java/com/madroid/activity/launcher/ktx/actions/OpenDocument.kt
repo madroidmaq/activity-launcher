@@ -6,7 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityOptionsCompat
 import androidx.fragment.app.Fragment
 import com.madroid.activity.launcher.ActivityLauncher
-import com.madroid.activity.launcher.actions.openDocument
+import com.madroid.activity.launcher.ktx.awaitLaunch
 
 /**
  * extension for [ActivityResultContracts.OpenDocument]
@@ -19,8 +19,7 @@ fun androidx.activity.ComponentActivity.launchOpenDocument(
     options: ActivityOptionsCompat? = null,
     result: ActivityResultCallback<Uri?>
 ) {
-    ActivityLauncher.openDocument(activityResultRegistry)
-        .launch(mimeTypes, options, result)
+    ActivityLauncher.openDocument(activityResultRegistry).launch(mimeTypes, options, result)
 }
 
 /**
@@ -32,8 +31,7 @@ fun androidx.activity.ComponentActivity.launchOpenDocument(
 suspend fun androidx.activity.ComponentActivity.awaitOpenDocument(
     mimeTypes: Array<String>,
     options: ActivityOptionsCompat? = null,
-): Uri? =
-    ActivityLauncher.openDocument(activityResultRegistry).awaitLaunch(mimeTypes, options)
+): Uri? = ActivityLauncher.openDocument(activityResultRegistry).awaitLaunch(mimeTypes, options)
 
 /**
  * extension for [ActivityResultContracts.OpenDocument]
