@@ -27,4 +27,8 @@ internal class LauncherImpl<I, O>(
     private fun onResult() {
         launcher?.unregister()
     }
+
+    override fun launch(input: I, callback: ActivityResultCallback<O>) {
+        launch(input, null, callback)
+    }
 }

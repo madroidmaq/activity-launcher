@@ -20,4 +20,17 @@ interface Launcher<I, O> {
         options: ActivityOptionsCompat? = null,
         callback: ActivityResultCallback<O>
     )
+
+    /**
+     * API Wrapper For  [androidx.activity.result.ActivityResultLauncher.launch].
+     *
+     * @param input the input required to execute an [ActivityResultContract].
+     * @param callback the activity result callback.
+     *
+     * @throws android.content.ActivityNotFoundException
+     */
+    fun launch(
+        input: I,
+        callback: ActivityResultCallback<O>
+    )
 }
