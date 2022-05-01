@@ -8,6 +8,8 @@ import com.madroid.activity.launcher.ActivityLauncher
 import com.madroid.activity.launcher.ktx.actions.awaitGetMultipleContents
 import com.madroid.activity.launcher.ktx.actions.launchGetContents
 import com.madroid.activity.launcher.ktx.actions.launchOpenDocument
+import com.madroid.launcher.app.contracts.BleActivityResultContract
+import com.madroid.launcher.app.contracts.enableBle
 import com.madroid.launcher.app.databinding.ActivityResultLauncherBinding
 import kotlinx.coroutines.launch
 
@@ -145,5 +147,17 @@ class ActivityResultLauncherActivity : AppCompatActivity() {
 
     private fun takeVideo() {
         // TODO:
+    }
+
+    private fun enableBle() {
+        ActivityLauncher.startWithContract(activityResultRegistry, BleActivityResultContract()).launch(null) { isEnable ->
+
+        }
+    }
+
+    private fun enableBleWithKtx() {
+        ActivityLauncher.enableBle(activityResultRegistry) { isEnable ->
+
+        }
     }
 }
