@@ -1,5 +1,7 @@
 # Activity Launcher
 
+[![](https://jitpack.io/v/madroidmaq/activity-launcher.svg)](https://jitpack.io/#madroidmaq/activity-launcher)
+
 Activity Launcher 是 StartActivityForResult 的终极解决方案，真正意义上的一行代码搞定。
 
 ![activity-launcher](docs/activity-launcher.png)
@@ -101,12 +103,19 @@ class MainActivity : AppCompatActivity() {
 
 ### 添加依赖
 
-```kotlin
+```groovy
+allprojects {
+  repositories {
+    //...
+    maven { url 'https://jitpack.io' }
+  }
+}
+
 dependencies {
     // normal & java
-    implementation("com.madroid.activity:launcher:${last_version}")
+    implementation("com.github.madroidmaq.activity-launcher:launcher:${last_version}")
     // Kotlin Coroutines & ktx
-    implementation("com.madroid.activity:launcher-ktx:${last_version}")
+    implementation("com.github.madroidmaq.activity-launcher:launcher-ktx:${last_version}")
 }
 ```
 
